@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: projeto_integrador_development
+  username: postgres
+  password: klbf15346
+  host: 127.0.0.1
+  port: 5432
+
+test:
+  <<: *default
+  database: projeto_integrador_test
+  username: postgres
+  password: klbf15346
+  host: 127.0.0.1
+  port: 5432
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %> 
